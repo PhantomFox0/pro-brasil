@@ -1,17 +1,13 @@
-import Logo from './Logo'
+import Logo from './Logo';
+import NavBar from './NavBar';
 
-// Rodapé que aparece em todas as páginas.
-function Footer({ mudarPagina }) {
+
+function Footer() {
   return (
     <footer className="footer">
       <div className="footer-topo">
         <Logo />
-        <div className="footer-links">
-          <button onClick={() => mudarPagina('inicio')}>Página inicial</button>
-          <button onClick={() => mudarPagina('curriculo')}>Currículo</button>
-          <button onClick={() => mudarPagina('vagas')}>Vagas</button>
-          <button onClick={() => mudarPagina('perfil')}>Perfil</button>
-        </div>
+        <NavBar className="footer-links" />
       </div>
       <p className="footer-copy">
         © 2026 EmpregaBrasil. Todos os direitos reservados. Feito com Figma em São Paulo, Brasil.
@@ -20,4 +16,4 @@ function Footer({ mudarPagina }) {
   )
 }
 
-export default Footer
+export default Footer;

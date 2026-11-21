@@ -1,19 +1,30 @@
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { createBrowserRouter, RouterProvider, Outlet, useLocation } from "react-router-dom";
 
-import NavBar from "../components/NavBar";
-import PrincipalPage from "../pages/PrincipalPage";
-import PerfilPage from "../pages/PerfilPage";
-import CurriculosPage from "../pages/CurriculosPage";
-import VagasPage from "../pages/VagasPage";
-import ErrorPage from "../pages/ErrorPage";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Home from "../pages/Home";
+import Curriculo from "../pages/Curriculo";
+import Vagas from "../pages/Vagas";
+import Perfil from "../pages/Perfil";
+import Error from "../pages/Error";
 
 function RootLayout() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <>
-      <NavBar />
-      <h1>React Router</h1>
-      <Outlet />
-      <p>Footer</p>
+      <Header />
+
+      <main>
+        <Outlet />
+      </main>
+  
+      <Footer />
     </>
   );
 }
@@ -22,23 +33,23 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
-    errorElement: <ErrorPage />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
-        element: <PrincipalPage />,
+        element: <Home />,
       },
       {
-        path: "perfil",
-        element: <PerfilPage />,
-      },
-      {
-        path: "curriculos",
-        element: <CurriculosPage />,
+        path: "curriculo",
+        element: <Curriculo />,
       },
       {
         path: "vagas",
-        element: <VagasPage />,
+        element: <Vagas />,
+      },
+      {
+        path: "perfil",
+        element: <Perfil />,
       },
     ],
   },

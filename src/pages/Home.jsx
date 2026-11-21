@@ -1,9 +1,9 @@
-import fotoCidade from '../assets/cidade.jpg'
-import fotoCidadeNoite from '../assets/cidade-noite.jpg'
-import fotoNotebook from '../assets/mulher-notebook.jpg'
-import fotoEscritorio from '../assets/escritorio.jpg'
-import fotoEntrevista from '../assets/entrevista.jpg'
-
+import { Link } from 'react-router-dom';
+import fotoCidade from '../assets/cidade.jpg';
+import fotoCidadeNoite from '../assets/cidade-noite.jpg';
+import fotoNotebook from '../assets/mulher-notebook.jpg';
+import fotoEscritorio from '../assets/escritorio.jpg';
+import fotoEntrevista from '../assets/entrevista.jpg';
 
 
 // Lista dos cards da parte Sobre o projeto
@@ -22,7 +22,8 @@ const sobre = [
   },
 ]
 
-function HomePage({ mudarPagina }) {
+
+function Home() {
   return (
     <>
       <section className="container">
@@ -52,8 +53,18 @@ function HomePage({ mudarPagina }) {
         <div className="secoes-textos">
           <h2>Seções</h2>
 
-          <button className="secoes-link" onClick={() => mudarPagina('curriculo')}>Currículo</button>
+          <Link className="secoes-link" to="/perfil">
+            Perfil
+          </Link>
+          <p>Edite suas informações pessoais e profissionais.</p>
+          <Link className="secoes-link" to="/curriculo">
+            Curriculo
+          </Link>
           <p>Orientações na construção de um currículo para sua aplicação em vagas.</p>
+          <Link className="secoes-link" to="/vagas">
+            Vagas
+          </Link>
+          <p>Encontre oportunidades voltadas para suas capacidades e competências.</p>
         </div>
         <img className="secoes-foto" src={fotoCidadeNoite} alt="São Paulo à noite" />
       </section>
@@ -61,4 +72,4 @@ function HomePage({ mudarPagina }) {
   )
 }
 
-export default HomePage
+export default Home;

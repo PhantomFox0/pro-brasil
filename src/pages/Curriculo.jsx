@@ -19,7 +19,7 @@ const dicas = [
   },
 ]
 
-function CurriculoPage() {
+function Curriculo() {
   return (
     <section className="container curriculo">
       <h1 className="titulo">Montagem de Currículo</h1>
@@ -44,4 +44,4 @@ function CurriculoPage() {
   )
 }
 
-export default CurriculoPage
+export default Curriculo

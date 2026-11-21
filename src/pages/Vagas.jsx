@@ -1,4 +1,4 @@
-function VagasPage() {
+function Vagas() {
   return (
     <section className="container">
       <h1 className="titulo">Vagas</h1>
@@ -6,4 +6,4 @@ function VagasPage() {
   )
 }
 
-export default VagasPage
+export default Vagas
